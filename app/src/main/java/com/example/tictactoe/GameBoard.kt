@@ -25,4 +25,16 @@ class GameBoard {
 
         return null;
     }
+
+    fun isDraw(): Boolean {
+        return board.all { row -> row.all { !it.isEmpty() } }
+    }
+
+    fun reset() {
+        for (row in board) {
+            for (cell in row) {
+                cell.player = null
+            }
+        }
+    }
 }
